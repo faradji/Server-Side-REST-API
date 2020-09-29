@@ -1,0 +1,34 @@
+{
+  "name": "cars-server",
+  "version": "1.0.0",
+  "description": "to store and operate on cars resource ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dropdb": "export PATH=\"./node_modules/.bin:$PATH\"; sequelize db:drop --config=\"./server/db/config/config.js\"",
+    "createdb": "export PATH=\"./node_modules/.bin:$PATH\"; sequelize db:create --config=\"./server/db/config/config.js\"",
+    "migratedb": "export PATH=\"./node_modules/.bin:$PATH\"; sequelize db:migrate --config=\"./server/db/config/config.js\" --migrations-path=\"./server/db/migrations\"",
+    "seeddb": "export PATH=\"./node_modules/.bin:$PATH\"; sequelize db:seed:all --config=\"./server/db/config/config.js\" --seeders-path=\"./server/db/seeders\"",
+    "test": "NODE_ENV=test eslint server,test,config.js,index.js && nyc mocha --recursive test"
+  },
+  "engines": {
+    "node": "8.9.3"
+  },
+  "author": "Ali Faradji",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "eslint": "^4.13.1",
+    "express": "^4.16.2",
+    "express-basic-auth": "^1.1.3",
+    "lodash": "^4.17.5",
+    "mysql2": "^1.5.1",
+    "sequelize": "^4.31.1",
+    "sequelize-cli": "^3.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^4.1.0",
+    "nyc": "^10.1.2",
+    "supertest": "^3.0.0"
+  }
+}
